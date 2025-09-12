@@ -1,0 +1,21 @@
+print('Split Bill Calculator')
+bill_total=float(input('How much is the bill?: '))
+people=int(input('How many people?: '))
+owe=bill_total/people
+print('You each owe:',round(owe,2))
+
+
+print('Welcome to the driving license elegibility checker')
+name=input('what is your name')
+age=int(input('What age are u?'))#int converts string to integer input allows user to enter age
+
+print('you entered',age)
+if age>=17 and age<=74:
+    print(name,'you are elegible')
+elif age<17:
+    print(name,'you are not entitled')
+else age>74:
+    print(name,'you are entitled for 3 year')
+    
+    
+    
