@@ -1,0 +1,15 @@
+#calc can only sub and add
+
+
+
+name=input('please enter your name:')
+
+print("Hello", name.capitalize(), "\nWelcome to the addition and subtraction calculator")
+num1=int(input('Enter first number:'))
+num2=int(input('Enter second number:'))
+choice=input('do you want me to (a)dd or (s)ubtract?')
+if choice=='a':
+    print(num1,'+',num2,'=',num1+num2)
+elif choice=='s':
+    print(num1,'-',num2,'=',num1-num2)
+
