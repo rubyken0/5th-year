@@ -1,0 +1,15 @@
+print('Welcome to the ATM')
+
+userMoney=float(input('How much would you like to withdrawal? '))
+cash=[100,50,20,10,5]
+if userMoney==100 or userMoney==50 or userMoney==20 or userMoney==10 or userMoney==5:
+    print('here is ',userMoney)
+else:
+    print('Cannot give total amount')
+    
+lShadow1=float(input('enter length of object : '))
+height1=float(input('enter height of object : '))
+lShadow2=float(input('enter length of shadow of object 2: '))
+hObject2=(height1*lShadow2)/lShadow1
+
+print('The height of object 2 is: ',round(hObject2,2))
