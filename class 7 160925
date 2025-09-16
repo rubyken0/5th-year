@@ -1,0 +1,24 @@
+#name='Rubyy '
+#print(name.__contains__('R'))
+#print(name.__contains__('U')) #checks is contains something
+
+#if name.__contains__(' '):
+ #   print('invalid username')
+ 
+#pin='333'
+#print(pin.isdigit())#checks if nums
+
+#username='Rkenno12'      
+#print(username.isalnum())#let and nums
+#print(username.isalpha())#only letters
+#print(username[6].isalnum())
+ #space is special character
+#print(name.index('b'))
+#print(name.index(' '))
+#print(name.index('y'))
+
+name='Ruby'
+if name[0]=="R":
+    print('yay')
+else:
+    print('no')
