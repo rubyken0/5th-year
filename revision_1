@@ -1,0 +1,23 @@
+#revision 2025 a
+
+print('Welcome to the Tilers Mate')
+length=float(input('What length is the room? '))  #makes a variable, converts to float from string, input allows user to enter a length
+width=float(input('What width is the room? '))
+
+cost_sqM=15
+area=length*width
+print('You entered a length of:',length,'metres')
+print('You entered a width of:',width,'metres')
+print('The area of the floor is:',area)
+print('The cost per square metre is: ',cost_sqM)
+
+totalCost=cost_sqM*area
+print('The total cost is: ',totalCost)
+
+if totalCost>1000:       #condition
+    print('You are entitled to a 10% discount')
+elif totalCost>=100 and totalCost<=1000:
+    print('You are not entitled to a 10% discount')
+else:
+    print('Sorry,job is too small')
+    
