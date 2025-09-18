@@ -1,0 +1,21 @@
+print("Example 1: Counting up")
+count = 5
+while count <= 10:
+    print("Count is", count)
+    count = count + 1  
+print("Loop finished!\n")
+
+print("Example 1: Counting up")
+count = 3
+while count <= 15:
+    print("Count is", count)
+    count = count + 3 
+print("Loop finished!\n")
+
+
+print("Example 1: Counting down")
+count = 10  
+while count >0:
+    print("Count is", count)
+    count = count - 1  
+print("Loop finished!\n")
