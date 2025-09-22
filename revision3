@@ -1,0 +1,128 @@
+ Answer THEORY in comments.
+- Correct DEBUGGING snippets by writing your fixed version underneath.
+- Complete PRACTICAL TASKS by writing your code in the given spaces.
+- This revision is designed to prepare you for your FIRST TEST.
+
+
+# ============================================================
+# A) THEORY — answer in comments
+# ============================================================
+
+# Q1. What is Python and why is it useful to learn?
+# Your answer: Python is a programming language and is very useful because it is easy to read and use. its useful for games,web design and more.
+
+# Q2. What is an IDE? Give one example.
+# Your answer: Integrated Development Environment — software that helps you write/run/debug code.
+#     Examples: Thonny, PyCharm, VS Code, IDLE.
+
+# Q3. Which data type is each of the following?
+#   a) 42 - int
+#   b) "42" string
+#   c) 3.14 float
+#   d) True bool
+#   e) [1, 2, 3] list
+# Your answer:
+
+# Q4. What does type casting mean? Show how to convert "42" into an integer.
+# Your answer: type casting means converting a value from one type to another. to convert '42' (a string) into an integer you do this, for example by:
+#str='42'
+#num=int(str)
+#print(num)
+#
+#
+
+# Q5. Explain the difference between = and == in Python.
+# Your answer: '==' is for comparing two values for equality,'='assignign value to variable
+
+# Q6. How does range(start, stop) work in a for loop? Which value is excluded?
+# Your answer: includes from start and goes up to stop but does not include stop eg (2,5) from 2 up to but not including 5
+
+# Q7. What is an off-by-one error? Give a short example.
+# Your answer: when loop runs one too many or too few times because of user error
+
+# Q8. word = "hello"; print(word[1:4])  
+# What will this output, and why?
+# Your answer:ell
+
+# Q9. Lists are mutable. What does that mean?
+# Your answer: changeable (in place)
+
+# B1) Input and numbers
+#print("\nB1) Input and numbers")
+# Broken:
+#a = int(input("Enter a number: "))
+#b = int(input("Enter another number: "))
+#sum=a+b
+#print("Sum is", sum)
+# Task: Fix so numbers are added correctly, not joined as text.
+
+# Write your fix here:
+
+
+# B2) Conditional check
+#print("\nB2) Conditional check")
+# Broken:
+#x = 10
+#if x == 10:
+#    print("Ten")
+# Task: Use the correct comparison operator.
+
+# Write your fix here:
+
+
+# B3) While loop increment
+#print("\nB3) While loop increment")
+# Broken:
+count = 1
+while count <= 5:
+    print(count,end=' ')
+    count+=1
+
+# Task: Fix so it prints 1..5 and then stops.
+
+num1=int(input('give me a number: '))
+num2=int(input('give me another number: '))
+#add=num1+num2
+add= num1-num2 if num1>=num2 elif num2-num1 else num2>=num1
+
+diff=num1-num2
+prod=num1*num2
+rem=num1%num2
+print('The sum of both numbers is:',add)
+print('The difference between of both numbers is:',diff)
+print('The product of both numbers is:',prod)
+print('The remainder after division of both numbers is:',rem)
+
+age=int(input('enter your age: '))
+if age<13:
+    print('Child')
+elif age<=17:
+    print('Teen')
+else:
+    print('adult')
+    
+name=input('enter you name: ')
+print(name.lower())
+print(name.upper())
+print(name.capitalize())
+print(name[0])
+print(name[-1])
+
+print('numbers 1 to 10')
+for i in range(1,11):
+    print(i)
+    
+word=' '
+while word.lower()!='yes':
+    word=input('type yes:')
+print('thank you')
+
+friendList=[]#initialising empty list
+friendNames=int(input('how many friends do you have:'))#making a variable,converting to int, input allows user to enter 
+if friendNames>0:                                   #if user has more than 0 friends following condtions will happen 
+    for f in range(friendNames):                     #basically until amount of friends it will stop
+        name=input('enter friends name: ')          #getting user to enter names, above makes so keeps asking for amount of freinds
+        friendList.append(name)                      #create lsit append, adds names to said list
+    print('the names of your friends are:',friendList)
+else:
+    print('loser')
