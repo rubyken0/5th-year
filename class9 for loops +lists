@@ -1,0 +1,47 @@
+#class9
+#print()#adds an empty line to seperate
+
+#print("For loop with range(start, stop, step):")
+#for n in range(2, 11, 2):  # prints even numbers 2..10  #first 2-starts at 2 11-goes to 11 second 2-goes in steps of 2
+#    print(n)
+
+#print("Using step to count backwards")
+#for x in range(10,0,-1): #starts at 10,goes to 0, steps in -1, 
+#    print(x)
+
+#print('bla')
+#for i in range(1,7):
+#    print(i)
+
+#excercises
+print('multiples of 3 from 3 to 30 inclusive')
+for a in range(3,31,3):
+    print(a)
+    
+print('doubling')
+double=1
+while double<1000:
+    double=double*2
+    print(double,end=' ')
+    
+u_number=0 #0 for if someone is rewriting it 1 if it starts at 1
+
+while u_number>10 or u_number<1:
+    u_number=int(input('enter a number between 1 and 10: '))
+    
+    
+#example
+pet_list=[] #initialising an empty list
+
+total_pets=int(input("How many pets do you have?"))
+
+if total_pets>0:
+    for p in range(total_pets):
+        name=input("Enter pet's name: ")
+        pet_list.append(name)
+    
+    print(f"The names of your pets are: {pet_list}")
+
+else:
+    print("You have no pets")
+    
