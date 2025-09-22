@@ -1,0 +1,60 @@
+#chat gpt revision
+
+#temp converter
+tempC=float(input('enter temp in celcius: '))
+converted=(tempC*9/5)+32
+print('temp in ferenheit:',converted)
+
+#even or odd
+num=int(input('enter a number: '))
+if num%2==0:
+    print('number is even')
+else:
+    print('number is odd')
+    
+#list sum
+numbers=[2,4,68,3]
+total=0
+for i in numbers:
+    total+=i
+    
+print('the sum is',total)
+
+#character counter
+string=input('give me a phrase:')
+character=input('give me a character')
+count=0
+for i in string:
+    if i==character:
+        count+=1
+print('the character appears',count,'times')
+
+#calc
+print('WELCOME TO THE CALCULATOR')
+print()
+num1=int(input('enter a number: '))
+num2=int(input('enter a another number:\n '))
+uOper=input('enter an operater,+,-,%,*,/,//,**:\n ')
+
+add=num1+num2
+minus=num1-num2
+mod=num1%num2
+prod=num1*num2
+divide=num1/num2
+fDivide=num1//num2
+power=num1**num2
+
+if uOper=='+':
+    print(num1,'+',num2,'=',add)
+if uOper=='-':
+    print(num1,'-',num2,'=',minus)
+if uOper=='%':
+    print(num1,'%',num2,'=',mod)
+if uOper=='*':
+    print(num1,'multiplied by',num2,'=',prod)
+if uOper=='/':
+    print(num1,'divided',num2,'=',divide)
+if uOper=='//':
+    print(num1,'floor divided by',num2,'=',fDivide)
+if uOper=='**':
+    print(num1,'to the power of ',num2,'=',power)
