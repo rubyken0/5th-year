@@ -1,0 +1,87 @@
+REVISION Q1
+
+print("Welcome to the pet food cost calculator.\n")
+print("This calculator finds the total cost of pet food\n")
+uName=input('Enter your name: ')
+total_cost = 0
+items_count = 1
+print(f'Order processed by {uName.capitalize()}')
+petFood_num=int(input('How many types of pet food are being purchased? '))
+while petFood_num <0:
+        print('Invalid number')
+        break
+
+for i in range(petFood_num):
+    items_count=i+1
+    
+    price_of_item = float(input(f"Enter the price of item {items_count}: €"))
+
+    total_cost+= price_of_item
+print(f"You entered {items_count} item(s) and the total is €{round(total_cost,2)}")
+
+uPay=float(input('Enter amount of money the customer is paying: '))
+change=uPay-total_cost
+amount_owed=total_cost-uPay
+if uPay>= total_cost:
+    print(f'Payment complete, change due: €{round(change,2)}')
+else:
+    print(f'Not enough money,customer still owes: €{round(amount_owed,2)}')
+    
+    REVISION Q2
+
+print("Welcome to the café ordering system.\n")
+#this program is an ordering system for a cafe
+total_cost = 0
+print("All hot drinks cost €2.50 each.")
+name=input('Enter your name: ')
+print(f'Order taken by: {name}')
+drinks_amount=int(input('How many drinks does the customer want to buy? '))
+while drinks_amount<0:
+    print('Invalid amount entered')
+    break
+for i in range(
+    
+    REVISION q3
+
+print('Welcome to the phone credit top-up system.\n') #this program allows customers to top up their phone credit
+total_cost=0
+i=1
+name=input('Enter your name: ')
+print(f'Top up processed by: {name.capitalize()}\n')
+phoneAmount=int(input('Enter amount of phones that need to be topped up: '))
+while phoneAmount<1:
+    print('Invalid entry')
+    break
+for i in range(phoneAmount):
+    i+=1
+    top_up=float(input(f'enter the top-up amount for customer {i}: €'))
+    total_cost+=top_up
+print(f'The total amount due: €{round(total_cost,2)}')
+
+payment=float(input('Enter customer money amount used: €'))
+change=payment-total_cost
+amount_owed=total_cost-payment
+
+if payment==total_cost:
+    print('Exact payment recieved. Thank you!')
+elif payment>total_cost:
+    print(f'All payments recieved. Change due: €{round(change,2)}')
+else:
+    print(f'More money needed to cover top-ups. Amount owed: €{round(amount_owed,2)}')
+    
+REVISION Q4
+
+#Student name:
+library_members=['Sarah','John','Emma','Aidan','Grace','Daniel','Laura','Sophie','Ben','Megan']
+borrower=input('Enter name of person who wants to borrow a book: ').lower()
+if borrower in map(str.casefold,library_members):
+    print(borrower,'is a registered library member.')
+else:
+    print(borrower,'is not a registered library member.')
+if borrower not in map(str.casefold,library_members):
+    register=input('Would you like to register as a new member, y/n? ')
+if register == 'y':
+    library_members.append(borrower)
+
+#library_members.append(name)
+print(library_members.sort())
