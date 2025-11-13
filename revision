@@ -28,3 +28,34 @@ else:
     print(f'Not enough money,customer still owes: €{round(amount_owed,2)}')
 
 Q2
+#  REVISION Q2
+
+print("Welcome to the café ordering system.\n")
+#this program is an ordering system for a cafe
+total_cost = 0
+print("All hot drinks cost €2.50 each.")
+name=input('Enter your name: ')
+print(f'Order taken by: {name.capitalize()}')
+
+drinks=int(input('how many drinks: '))
+# (v) for loop to calculate the total price
+for i in range(1,drinks+1):
+    price=2.5
+    total_cost+=price
+#vi
+snack=input('do you want a snack; y/n: ')
+if snack=='y':
+    total_cost+=1.5
+elif snack=='n':
+    total_cost+=price
+    
+
+print(f"the total is €{round(total_cost,2)}")
+
+uPay=float(input('Enter customer balance : '))
+change=uPay-total_cost    #can do these in if statement
+amount_owed=total_cost-uPay
+if uPay>= total_cost:
+    print(f'Payment complete, change due: €{round(change,2)}')
+else:
+    print(f'Not enough money,customer still owes: €{round(amount_owed,2)}')
