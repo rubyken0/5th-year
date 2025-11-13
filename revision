@@ -1,0 +1,30 @@
+corrections Q1
+print("Welcome to the pet food cost calculator.\n")
+#This calculator finds the total cost of pet food and allows for customer payment
+uName=input('Enter your name: ')
+total_cost = 0
+items_count = 1
+print(f'Order processed by {uName.capitalize().strip()}')
+while True:
+    petFood_num=int(input('how many types of pet food: ')) 
+    if petFood_num <0:
+                    print('invalid number')
+    else:
+                    break
+
+for i in range(1,petFood_num+1):
+    
+    price_of_item = float(input(f"Enter the price of item {i}: €"))
+
+    total_cost+= price_of_item
+print(f"You entered {i} item(s) and the total is €{round(total_cost,2)}")
+
+uPay=float(input('Enter amount of money the customer is paying: '))
+change=uPay-total_cost    #can do these in if statement
+amount_owed=total_cost-uPay
+if uPay>= total_cost:
+    print(f'Payment complete, change due: €{round(change,2)}')
+else:
+    print(f'Not enough money,customer still owes: €{round(amount_owed,2)}')
+
+Q2
