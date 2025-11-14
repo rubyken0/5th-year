@@ -69,3 +69,53 @@ if uPay>= total_cost:
     print(f'Payment complete, change due: €{round(change,2)}')
 else:
     print(f'Not enough money,customer still owes: €{round(amount_owed,2)}')
+
+
+#REVISION Q4
+
+#Student name:
+library_members=['Sarah','John','Emma','Aidan','Grace','Daniel','Laura','Sophie','Ben','Megan']
+borrower=input('Enter name of person who wants to borrow a book: ').strip().capitalize()
+if borrower in library_members:
+    print(borrower,'is a registered library member.')
+else:
+    print(borrower,'is not a registered library member.')
+
+if borrower not in library_members:
+    register=input('Would you like to register as a new member, y/n? ').strip().lower()
+    if register=='y':
+        library_members.append(borrower)
+    else:
+        print('bye')
+        
+
+#library_members.append(name)
+print('the updated list is: ')
+library_members.sort()
+print(library_members)
+
+#Q6 -revision
+#i - adding suppliers to list
+approved_suppliers = ['BrightTech', 'GreenEnergy', 'NovaParts', 'EcoBuild', 'SmartSource', 'RapidTools', 'AlphaSteel', 'PrimePlastics','SafeWear', 'PolyTech', 'AeroWeld', 'BuildPro']
+#ii a - asks user to enter name of supplier usinginput statement 
+order=input('Enter the name of the supplier you want to order from: ').strip()
+#ii b - uses if statement to compare and check if the supplier is in the list
+if order in approved_suppliers:
+    print('This supplier is approved for purchases')
+else:
+    print('This supplier is not on the approved list.')
+ #iii - uses if statement to see if the user would like to add the supplier for future orders then adds said supplier to list and prints alphabetically 
+if order not in approved_suppliers:
+    add_supplier=input('would you like to add the supplier for future orders; y/n: ').strip().lower()
+    if add_supplier=='y':
+        approved_suppliers.append(order)
+    else:
+        print('Bye thank you')
+print('The updated supplier list is: ')
+approved_suppliers.sort()
+print(approved_suppliers)
+        
+        
+    
+
+
