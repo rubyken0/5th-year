@@ -36,3 +36,108 @@ if pay>=total_cost:
 else:
     owed=total_cost-pay
     print(f'Money not enough, you still owe €{owed}')
+
+
+
+
+
+
+#REVISION chat gpt but i added extra
+
+#this program uses while and for loops to enter titles and prices of books 
+print("Welcome to the bookstore checkout system.\n")
+product_list=[]
+total_price = 0
+#book_number = 1
+#2 creating variable uses input to let user enter name
+employee_id=input('Enter your employee ID: ').strip().capitalize()
+print(f'Processed by employee: {employee_id}')
+#3 uses while loop to make the code ask how many books they are buying until they enter a valid amount
+while True:
+    book_number=int(input('How many books is the customer buying: '))
+    if book_number<=0:
+        print('Invalid quantity')
+    else:
+        break
+#4   uses for loop to loop once for each amount of book there is and ask for a title and price of each and adds to total price
+for i in range(1,book_number+1):
+    title = input(f"Enter the title of book {i}: ").capitalize()
+    price = float(input("Enter the price of this book: €"))
+#adding the book titles to the empty list 
+    product_list.append(title)
+    total_price += price
+    #5   prints total cost suing f string
+    print(f"\nYou added '{title}' and the total is now €{round(total_price,2)}")
+#extra    uses conditoinal statement to check is user entered y using == and if so adds price to total
+bookmark=input('Would the customer like to purchase a bookmark for €2.10? y/n: ').lower()
+if bookmark=='y':
+    total_price+=2.1
+    print(f'New total is €{round(total_price,2)}')
+else:
+    print('No extra charge added')
+
+#creating a list of the books purchased and printing them 
+product_list.sort()
+print(f'The list of books purchased is {product_list}')
+
+
+#6    asks user how much they are paying using input statement 
+paying=float(input('\nHow much money is the customer paying: '))
+#7   yses conditional stamtments to print change or amount remaining on whether the paying amount is greater or less than the total price 
+if paying>=total_price:
+    change=paying-total_price
+    print(f'Payment accepted. Change: €{round(change,2)}')
+else:
+    remaining=total_price-paying
+    print(f'Insufficient payement. Still owe €{round(remaining,2)}')
+
+    
+
+
+#2
+#1
+
+gym_members=['Alice','Mark','David','Lily','Noah','Chloe','James','Ella']
+#2     uses input statment to allow user to enter their name then gets rid of all the spaces and capitalizes it
+name=input('Welcome to the gym! Enter your name: ').strip().capitalize()
+#3     uses condtional statement to check if the variable is in the list
+if name in gym_members:
+    print(f'Welcome back, {name}!')
+#4     same conditional statment then creates a variable to ask if the user wants to register, uses another if statment to compare the variable and if they said y the adds the variable to the list 
+else:
+    print(f'{name} is not currently a gym member.')
+    register=input('Would you like to register? ; y/n: ').strip().lower()
+    if register=='y':
+        gym_members.append(name)
+    else:
+        print('Goodbye!')
+#5 sorting the list alphabetically then printing it
+print('\nThe updated membership list is: ')
+gym_members.sort()
+print(gym_members)
+
+
+
+
+
+#revision question b
+
+#i adding names into list
+trip_students=['Holly','Evan','Ciara','Tomas','Lily','Patrick','Ava','Darren','Sean','Maria']
+#ii
+#a   uses input statement to ask user for the name and then gets rid of spaces and capitalizes it so it is eligible to check with the list
+student_name=input('Enter name of student who wants to check in: ').strip().capitalize()
+#b uses if statment to check if the name is in the list and prints a reply and if not states thr name is not registered 
+if student_name in trip_students:
+    print(f'{student_name} is registered for the school trip.')
+else:
+    print(f'{student_name} is not registered for the school trip.')
+    #iii creates variable + uses input statement so user can enter reply, if the yser enters y their name is added to the list the prints the alphabetical list 
+    register=input('Would the student like to sign up for the school trip? y/n: ')
+    if register=='y':
+        trip_students.append(student_name)
+    else:
+        print('Goodbye')
+trip_students.sort()
+print('\nThe updated list is: ')
+print(trip_students)
