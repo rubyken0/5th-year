@@ -1,0 +1,38 @@
+#Ruby Kennedy
+#a
+#1
+print('Welcome to the cinema ticket booking system!')
+total_cost=0
+#2 input statement allows user to enter name and then displays their name
+name=input('Enter your name : ') # need to add dot strip and dot cap here 
+print(f'Booking handled by {name.capitalize()}\n')
+#5 and 4  usibg a while loop to ensure the amount entered is greater than zero with conditional statment until entered
+while True:
+    ticketAmount=int(input('All tickets cost €8 each. How many tickets do you want: '))
+    if ticketAmount<=0:       # need to add = so the zero is included
+        print('Invalid number')
+#        break      # no need for break here as it needs to keep going until above is true 
+    else:
+        break
+# 6 using for loop to add the price of tickets to the amount of tickets from one to said amount inclusive  # could say loop once for each ticket with i going from 1 up tickets inclusive
+for i in range(1,ticketAmount=1):
+    total_cost+=8
+ # 7 creating variable to ask if the user wants glasses then using conditional statments to check using ==, then adding charge to total cost    
+glasses=input('Do you want 3D glasses? ; y/n: ').lower() # do dot strip here too 
+if glasses=='y':
+    total_cost+=1.5
+else:
+    print('No extra charge added\n')
+    
+    
+ #8 displaying total cost using f string and round to round the cost to two decimal places   
+print(f'The total cost is €{round(total_cost,2)}\n')
+
+#9 creating float input variable to allow user to enter how muhc money they are paying with then uses conditional statements to check if the amount payed is enough 
+pay=float(input('How much money are you paying with? '))
+if pay>=total_cost:
+    change=pay-total_cost
+    print(f'Thank you, your change is €{round(change,2)}')
+else:
+    owed=total_cost-pay
+    print(f'Money not enough, you still owe €{owed}')
