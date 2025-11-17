@@ -1,0 +1,73 @@
+
+#ruby k
+# A
+# 1 this program calculates the price for a gym membership and classes  
+print("Gym Membership Fee Calculator\n")
+base_fee = 20
+total_cost=0
+print(f"Base membership fee: €{base_fee}")
+
+#my own thing to revise
+register=input('Would you like to sign up for a membership: y/n: ').lower()
+if register=='y':
+    # 2 creates variable then uses input statement to allow user to enter their name then capitalizes it 
+    name=input('Okay! Enter your full name: ').capitalize()
+    print(f'Membership created for {name}')
+    # 3 uses while loop to ask how many classes the user wants and if they enter an incorrect number it loops until true 
+    while True:
+        classes=int(input('\nHow many optional classes would you like to add: '))
+        
+        if classes<0:
+            print('Invalid Number')
+        else:
+            break
+    # 4 using a for loop to ask the cost of each class however many class amount they entered inclusive (the +1) and adding each class cost and thr base fee to the total 
+    for i in range(1,classes+1):
+        cost_class=float(input(f'Enter the cost for class number {i}: '))
+        total_cost+=cost_class
+        
+    total_cost+=base_fee
+    #5 displaying the final cost and rounding to 2 decimal place
+    print(f'\nYour final membership cost is €{round(total_cost,2)}')
+    #6 asking the user how much money they are paying with using an input statement and converting it to a float because money has change
+    pay=float(input('How much money are you paying with: '))
+    #7 using conditional statements to compare how much the user is paying with and the total cost and creating variables (change or owe) to see find the users change or amount lef tto pay 
+    if pay>=total_cost:
+        change=pay-total_cost
+        print(f'Payment successful, change: €{round(change,2)}')
+    else:
+        owe=total_cost-pay
+        print(f'Payment unsuccessful, still owe: €{round(owe,2)}')
+
+
+
+else:
+    print('Okay, Goodbye!')
+    
+
+#b
+# Student name: ruby kennedy
+#i adding names to the lists
+guest_list = ['Alice','Kevin','Maria','Brian','Ciara','Luke','Orla','James','Sophia','Tom']
+banned_list = ['Ethan','Carla']
+#ii
+#a uses input statment to allow user to enter their name then removes all spaces and capitalizes it so it is compatible with the items in the list so the code can check correctly
+name=input('Enter the name of the person trying to enter the event: ').strip().capitalize()
+#b checking using conditional statment if name is in the banned list 
+if name in banned_list:
+    print(f'\n{name} is in banned list, do not allow them in.')
+#c    checks if name is in the guest list using if statement
+elif name in guest_list:
+    print(f'\n{name} is on the guest list.')
+#iii checks if name is not in guest list and banned list and is so allows user to enter if they would like to register and if yes adds their name to the end of the list then printd the list alphabetically and the amountof names int eh list
+elif name not in guest_list and name not in banned_list:
+    print(f'\n{name} is not on the guest list.')
+    register=input('\nWould you like to register to be on the guest list: y/n: ')
+    if register=='y':
+        guest_list.append(name)
+    else:
+        print('Okay, goodbye!')
+    guest_list.sort()
+    print('The updated guest list is: \n')
+    print('The number of people in the list is: ',len(guest_list))
+    print(guest_list)
