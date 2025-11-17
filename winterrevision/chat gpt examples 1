@@ -1,1 +1,57 @@
 CHAT GPT EXAMPLES 
+
+
+#rk
+# a
+#i   this program calculates the cost of movie tickets and shows the amount due and gives change
+print('Welcome to the cinema ticket cost calculator!')
+total_cost=0
+#ii   creating a variable and using an input statement to allow user to enter what movie they want to see
+movie=input('What movie would you like to see? : ').capitalize()
+#iii using a while loop to repeatdly ask the user how many tickets they want until they enter a valid number
+while True:
+    tickets=int(input('How many tickets do you want to buy : \n'))
+    if tickets<=0:
+        print('Invalid entry')
+    else:
+        break
+#iv  using a for loop to repeatdly ask the user the price of each ticket for how ever many tickets they entered into variable 'tickets' and adding and assigning each value 
+for i in range(1,tickets+1):
+    ticket_price=float(input(f'Enter the cost of ticket {i}: '))
+    total_cost+=ticket_price
+#v printing the total amount to pay and rounding it to 2 decimal places
+print(f'\nTotal amount due for tickets: €{round(total_cost,2)}')
+#vi   creates variable, converts to float (as money has decimals), uses input so user can enter their response
+pay=float(input('How much money are you paying: '))
+#vii   using conditional statement to check if the amount the user entered is less or more than the total cost and displays the change or amount stil needed 
+if pay>total_cost:
+    change=pay-total_cost
+    print(f'Thank you, here is your change €{round(change,2)}')
+elif pay<total_cost:
+    owe=total_cost
+    print(f'Payment unsuccessful, amount needed: €{round(owe,2)}')
+else:
+    print('Exact amount payed, Thank you!')
+
+    
+#rk
+#b
+#i   this program checks is a student is registered and if they are not asks if they want to and shows the updated list
+#entering the names into the list
+registered_students=['Anna','Sam','Aine','Ruby','John','Helen','Dan','Niamh']
+#ii a  creates variable and uses input statement to allow user to respond, removing spaces and making it capitalized so it is applicable to the list 
+name=input('Enter the name of the student who wants to check in:  ').strip().capitalize()
+#ii b uses conditional statement to check if the variable name is in the list 
+if name in registered_students:
+    print(f'{name} is registered, you are checked in!')
+#iii  checks if name is not in list then asks if the user would like to register, then using if statement to check is the user entered 'y' and if so adds their name to the end and then prints alphabetically 
+else:
+    register=input(f'{name} is not registered, would you like to be registered; y/n: ')
+    if register=='y':
+        registered_students.append(name)
+        registered_students.sort()
+        print('\nThe updated list is:')
+        print(registered_students)
+    else:
+        print('Bye')
+    
