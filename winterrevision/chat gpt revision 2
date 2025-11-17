@@ -1,0 +1,90 @@
+chat gpt revision 2
+
+#rk
+#a
+#this program allows the user to order pizza, calculates the total cost, asks the user for any add-ons and prints total prints change/amount owed
+#1  printing a welcome message
+print('Welcome to RUBYS pizza service!')
+#2  making a variable for how much the pizzas cost and an empty one for the total cost which is epmty as it will be changed later in the code
+pizza_cost=9
+total_cost=0
+#3  making a variable, using input statment so the user can reply with their name and capitalizing said response 
+u_name=input('Enter your name: ').capitalize()
+print(f'Order handled by: {u_name}')
+#4  using a while loop to ask the user how many pizzas they are ordering and loop until the user enters a valid number and if they do the loop breaks
+while True:
+    pizza=int(input('How many pizzas are you ordering?  '))
+    if pizza<=0:
+        print('Invalid number entered')
+    else:
+        break
+#5  using a for loop to loop for however amount they entered of pizza to calculate the total cost and add and assign the price for each time
+for i in range(1,pizza+1):
+    total_cost+=pizza_cost
+#6 creating a variable and using input statment so user can enter reply and using conditional statement to do something based on what the user entered and adding the price to the total cost
+garlic_bread=input('\nWould you like garlic bread for €3? y/n: ')
+if garlic_bread=='y':
+    total_cost+=3
+else:
+    print('Okay!')
+#7
+drink=input('Would you like a soft drink for €1.50? y/n: ')
+if drink=='y':
+    total_cost+=1.5
+else:
+    print('Okay!')
+#8 printing the total cost rounded to 2 decimals
+print(f'\nThe total cost is €{round(total_cost,2)}')
+#9  asking how much the user is paying using input statement, using conditional statement to compare what they answered with the total cost to see if its more or less, then printing their change/amount owed
+pays=float(input('\nHow much are you paying?  '))
+if pays>=total_cost:
+    change=pays-total_cost
+    print(f'\nThank you, change: €{round(change,2)}')
+else:
+    owe=total_cost-pays
+    print(f'\nPayment unsuccessful, still owe: €{round(owe,2)}')
+
+
+
+
+#rk
+#b
+import sys
+#1 creating a list of the members
+members=['Liam','Holly','Evan','Zara','Mia','Adam','Saoirse']
+#7
+game_price=4
+total_cost=0
+print('Welcome to the Video Game rental system')
+#2 using input statement to ask user what their name is
+name=input('\nEnter your name: ').strip().capitalize()
+#3  using if statement to check if the variabke name is in members list
+if name in members:
+    print('You are a registered member')
+#4  using if statement checking if they are not in the list then asking if they want to register and adding their name to the list, if no code ends
+else:
+    print('Not registered')
+    register=input('Would you like to register; y/n:  ')
+    if register=='y':
+        members.append(name)
+        members.sort()
+        print('\nThe updated list is: ')
+        print(members)
+    else:
+        sys.exit()
+        
+#9 printing sorted list above ^
+
+#5 and 6  using while loop to ask how mant games they want and asking until they enter a valid number using the while loop
+        
+while True:
+    video_game=int(input('\nHow many games do you want to rent (€4)?  '))
+    if video_game<=0:
+        print('Invalid')
+    else:
+        break
+#8  using for loop to add the game price for every 'game' amount stated in the variable video_game
+for i in range(1,video_game+1):
+    total_cost+=game_price
+#9 printing the rounded total
+print(f'\nThe total cost is : €{round(total_cost,2)}')
