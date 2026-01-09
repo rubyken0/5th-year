@@ -1,0 +1,24 @@
+import csv
+with open("social_media_minutes.csv","r") as file:
+    reader=csv.reader(file)
+    csv_data=list(reader)
+    
+header=csv_data[0]
+rows=csv_data[1:]
+
+print("using the csv file")
+print("Column headings:",header)
+
+print("\nFirst 5 rows:")
+for row in rows[:5]:
+    print(row)
+    
+    
+import pandas as pd
+data=pd.read_csv("social_media_minutes.csv")
+
+print("First five rows: ")
+print(data.head())
+print("\n")
+print("last five rows: ")
+print(data.tail())
