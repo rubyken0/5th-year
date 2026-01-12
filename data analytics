@@ -1,0 +1,48 @@
+import pandas as pd
+ 
+#step 1 analytics process: Access data
+df=pd.read_csv("social_media_minutes.csv")
+ 
+#print first 5 rows
+print("First 5 rows:")
+print(df.head())
+
+#print last 5 rows
+print("\nLast 5 rows:")
+print(df.tail())
+ 
+#Find basic information about our dataset
+print(df.shape) #size of the data set
+print(df.columns) # list of the column names
+print(df.info()) #data types in the data set
+
+#preprocessing
+#cleaning data
+print(df.isna().sum())   #totals the missing values in each column
+df=df.dropna() #removess rowswith misssing data
+print(df)
+
+df=df.drop_duplicates() #gets ridof duplicate values
+print(df)
+
+#removing outliers
+df=df[df["Age"]<=20]   #removes rowswith ages more than 20
+df=df[df["Minutes per Day"]>=0] #removes neg values
+df=df[df["Minutes per Day"]<=300]  #removes values more than 300
+print(df)
+
+
+#step 3 analysing data
+#mean
+mean_mins=round(df["Minutes per Day"].mean(),2)
+print(f'The avg mins per day is {mean_mins}')
+
+#mode age
+mode_age=df["Age"].mode()
+print(f'The modal age is {mode_age}')
+
+#median
+median_mins=round(df["Minutes per Day"].median(),2)
+print(f'The median mins are {median_mins}')
+
+
