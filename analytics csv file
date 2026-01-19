@@ -1,0 +1,35 @@
+#creating a csv
+file_1=open('file_1.csv','w') #w means write as in creating newcsv so we can write into it
+file_1.write('1,2,3,4,5')  #writing into file adding data into file
+file_1.close()
+
+file_1=open('file_1.csv','r')  #r means to read file
+data_file_1=file_1.read()
+file_1.close()
+print(data_file_1)
+
+
+#putting user info intocsv
+
+subjects=0
+subject_list=[]
+people=int(input('how many students: '))
+for subjects in range (people):
+    ask=input(f'What is {subjects+1} fav subject: ')
+    subject_list.append(ask)
+    
+print(subject_list)
+
+#split list with commas
+#subject_list_split=subject_list.split(',')
+#subject_list_split=[str(item) for item in subject_list_split]
+
+
+#fixed way strings
+file_subjects=open('file_subjects.csv','w')
+for ask in subject_list:
+    file_subjects.write(ask+'\n')
+file_subjects.close()
+
+#file_subjects.write(subject_list_split)
+#file_subjects.close()
