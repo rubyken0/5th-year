@@ -1,0 +1,32 @@
+import pandas as pd
+#import matplotlib.pyplot as plt
+#import numpy as np
+
+#acessing data
+df=pd.read_csv('student_exam_scores.csv')
+#printing first 5 rows before cleaning
+print('Raw dataset preview:')
+print(df.head())
+
+#pre-processing data
+#removing missing values
+df = df.dropna()
+
+#remove duplicate rows (exact repeats)
+df = df.drop_duplicates()
+
+# Remove outliers / unrealistic values using filters
+#getting rid of hours studied that are too high,keeping hours under 30
+df = df[df['Hours Studied'] <=30]
+
+#getting rid of sleep hours that are unrealistic, keeping sleep hours under 15
+df=df[df['Sleep Hours']<=15]
+
+# Show cleaned data to confirm filters worked
+print('\nCleaned dataset preview:')
+print(df.head())
+
+#analysing data
+print('\n--- Summary Statistics for Sleep Hours ---')
+# .describe() gives count, mean, std, min, quartiles, max
+print(df['Sleep Hours'].describe())
