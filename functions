@@ -36,6 +36,58 @@ print ("The mean percentage mark is", arithmetic_mean)
 #calling functioniv
 print(f"The grade for the average result is {get_grade(arithmetic_mean)}")
 #v
-results.sort()
-print(f"The lowest score is {results[0]}")
-print(f"The highest score is {results[-1]}")
+#results.sort()
+print(f"The lowest score is {sorted(results)[0]}")
+print(f"The highest score is {sorted(results)[-1]}")
+#vi
+count1=0
+count2=0
+for item in range(N):
+    if results[item] <40:
+        count1+=1
+    if results[item] >=50 and results[item] <=79:
+        count2+=1
+print(f"The number of scores below 40 is {count1}")
+print(f"The number of scores between 50 and 79 inclusive is {count2}")
+#
+
+longest_run = []
+current_run = [results[0]]
+
+for item in range(N):
+    if results[item] > results[item - 1]:
+        current_run.append(results[item])
+    else:
+        if len(current_run) > len(longest_run):
+            longest_run = current_run
+        current_run = [results[item]]
+
+# Final check in case the longest run is at the end
+if len(current_run) > len(longest_run):
+    longest_run = current_run
+
+print("The longest run of result increases is", longest_run)
+
+#part b
+#myList=[21,6,19,7,8,13,51,23,24,26,31,40]#initialising list
+myList=[]
+list_amount=int(input("How many numbers in the list"))
+for i in range(1,list_amount+1):
+    listItem=int(input(f"Enter is number {i}: "))
+    myList.append(listItem)
+    
+print(f"The list is {myList}")
+myList.sort()
+print(f"The sorted list is {myList}")
+if len(myList) %2==1:
+    print("odd")
+    median=myList[len(myList)//2]
+    print(f"The median of your list is {median}")
+
+elif len(myList)==0:
+    print("Error")
+else:   
+    print("even")
+    median=(myList[len(myList)//2-1] + myList[len(myList)//2])/2
+    print(f"The median of your list is {median}")
+
