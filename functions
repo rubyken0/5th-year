@@ -45,28 +45,48 @@ count2=0
 for item in range(N):
     if results[item] <40:
         count1+=1
-    if results[item] >=50 and results[item] <=79:
+    elif results[item] >=50 and results[item] <=79:
         count2+=1
 print(f"The number of scores below 40 is {count1}")
 print(f"The number of scores between 50 and 79 inclusive is {count2}")
-#
+#vii
+longest_run=[]
+current=[results[0]]
 
-longest_run = []
-current_run = [results[0]]
 
 for item in range(N):
-    if results[item] > results[item - 1]:
-        current_run.append(results[item])
+    if results[item] > results[item-1]:
+        current.append(results[item])
     else:
-        if len(current_run) > len(longest_run):
-            longest_run = current_run
-        current_run = [results[item]]
+        if len(current)>len(longest_run):
+            longest_run=current
+        current=[results[item]]
 
-# Final check in case the longest run is at the end
-if len(current_run) > len(longest_run):
-    longest_run = current_run
 
-print("The longest run of result increases is", longest_run)
+if len(current)>len(longest_run):
+    longest_run=current
+    
+print(f"The longest run of result increases is {longest_run}")
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #part b
 #myList=[21,6,19,7,8,13,51,23,24,26,31,40]#initialising list
@@ -90,4 +110,3 @@ else:
     print("even")
     median=(myList[len(myList)//2-1] + myList[len(myList)//2])/2
     print(f"The median of your list is {median}")
-
