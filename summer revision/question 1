@@ -1,0 +1,26 @@
+#Question 1(a)
+#ruby kennedy
+#iv 
+def welcome(name):
+    print(f"Welcome {name}, to the exercise calorie calculator")
+name=input("Please enter your username: ").capitalize()
+welcome(name)
+
+member_name = input("Please enter the member name: ").capitalize().strip()
+
+#i modified to float
+minutes = float(input("Please enter the number of minutes exercised: "))
+#ii  creating variable, converting to float as input can be decimal, input allows user to input info
+calories_per_minute=float(input("Please enter calories burned per minute: "))
+calories_burned = minutes * calories_per_minute
+#iii rounding
+
+
+#v
+if calories_burned>=300:
+    print(f"{member_name} burned {round(calories_burned,2)} calories. Excellent session")
+elif calories_burned<150:
+    print(f"{member_name} burned {round(calories_burned,2)} calories. Short session")
+else:
+    print(f"{member_name} burned {round(calories_burned,2)} calories. Good session")
+
