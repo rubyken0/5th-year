@@ -1,0 +1,24 @@
+# Question 2(a)
+# Student name: ruby kennedy
+#iv creating function so the code can be calleed again
+def welcome_message():
+    print("---Welcome to the Cinema Ticket Calculator---")
+
+welcome_message()
+
+customer_name = input("Please enter the customer name: ").capitalize()
+#i converting to float
+ticket_price = float(input("\nPlease enter the ticket price: "))
+#ii making new variable converting to float as may be decimal, using input statement to allow user to enter, subtracvting discount price from ticket
+discount_price=float(input("Please enter discount amount: "))
+
+#iii rounding function added
+final_price = round(ticket_price - discount_price,2)
+#v
+if final_price >=15:
+    ticket_type=("Premium ticket.")
+elif final_price<8:
+    ticket_type=("Discount ticket.")
+else:
+    ticket_type=("Standard ticket.")
+print(f"\n{customer_name} will pay €{final_price}. {ticket_type}")
