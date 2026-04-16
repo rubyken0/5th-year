@@ -10,4 +10,15 @@ def thermostat_model():
 target=int(input("Enter target temp: "))
 for i in range(5):
     actual=int(input("Enter temp: "))
+import random
+def dice():
+    user_guess=int(input("Enter your guess: "))  
+    dice_roll=random.randint(1,6)
 
+    if user_guess==dice_roll:
+        print("Correct")
+    else:
+        print("Wrong")
+    
+    
+dice()
