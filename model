@@ -1,15 +1,18 @@
-
-
-def thermostat_model():
-    target=int(input("Enter target temp: "))
+def thermo():
+    t=int(input("enter target temp: "))
+    for i in range(5):
+        a=int(input("enter temp: "))
+        if a<t:
+            print("low, heat on")
+        else:
+            print("good, heat off")
     
-    if actual<target:
-        return 1
-    else:
-        return 0
-target=int(input("Enter target temp: "))
-for i in range(5):
-    actual=int(input("Enter temp: "))
+    
+print(thermo())
+
+
+
+
 import random
 def dice():
     user_guess=int(input("Enter your guess: "))  
