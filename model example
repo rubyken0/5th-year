@@ -1,0 +1,18 @@
+#this model simulates pop growth...
+print("---Future Population Growth Model---")
+#assumptions - Rates are given by 1000,rates are constant, no war,extreme events/events affectingpop
+
+#inputs
+current_pop=int(input("\nEnter current pop in thousands: "))*1000
+current_year=int(input("Enter current year: "))
+current_birthRate=float(input("Enter current birth rate (per 1000 people)in percent: "))/100
+current_deathRate=float(input("Enter current death rate (per 1000 people)in percent: "))/100
+net_migrationRate=float(input("Enter net migration rate (per 1000 people)in percent: "))/100
+change_birthRate=float(input("Enter change in birth rate per year as a percent : "))/100
+change_deathRate=float(input("Enter change in death rate per year as a percent: "))/100
+change_migrationRate=float(input("Enter change in death rate per year as a percent: "))/100
+num_years=int(input("Enter amount of years to model: "))
+
+#process
+for i in num_years:
+    deaths=current_pop-
