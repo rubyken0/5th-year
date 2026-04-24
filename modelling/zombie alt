@@ -1,0 +1,10 @@
+#This is a computer model that predicts the change of population in a zombievirus
+#assumptions
+initial_pop=int(input("Enter the starting population in thousands: "))*1000
+transmission_rate=float(input("Enter the transmission rate; probabiity of transmission per person per day in percent: "))/100
+zombie_deaths=float(input("Enter zombie death percent per day: "))/100
+transmission_methods=("Enter the transmission method between zombies and humans; bite,airborne or contaminated surfaces (enter as 'B', 'A' or 'CS'): ").lower()
+cure_rate=float(input("Enter the rate that humans per day are being cured, in percent: "))/100
+interaction_rate=float(input("Enter the rate that humans per day are interacting with zombies, in percent: "))/100
+migration_rate=float(input("Enter the rate that humans per day that are migrating from the area, in percent: "))/100
+food_consumption=float(input("Enter the rate that food is being consumed on a daily basis, in percent: "))/100
