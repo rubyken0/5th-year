@@ -7,9 +7,9 @@ initial_pop=int(input("Enter the starting population in thousands: "))*1000
 transmission_rate=float(input("Enter the transmission rate; probabiity of transmission per person per day in percent: "))/100
 zombie_deaths=float(input("Enter zombie death rate per day: "))/100
 transmission_method=("Enter the transmission method between zombies and humans; bite,airborne or contaminated surfaces (enter as 'B', 'A' or 'CS'): ").lower()
-cure_rate=float(input("Enter the rate that humans per day are being cured, in percent: "))/100
-interaction_rate=float(input("Enter the rate that humans per day are interacting with zombies, in percent: "))/100
-migration_rate=float(input("Enter the rate that humans per day that are migrating from the area, in percent: "))/100
+cure_rate=float(input("Enter the percent that infected are being cured per day: "))/100   #cure rate * infected
+interaction_rate=float(input("Enter the percent of humans per day that are interacting with zombies: "))/100     #rate * pop
+migration_rate=float(input("Enter the percent of humans per day that are migrating from the area: "))/100
 food_consumption=float(input("Enter the rate that food is being consumed on a daily basis, in percent: "))/100
 
 days=int(input("Enter amount of days to be modelled:"))
@@ -23,15 +23,23 @@ else:
 
 food=1
 
-infected=(0.45*transmission_rate+ 0.25*transmission+ 0.2*interaction_rate + 0.1*migration_rate)
+#infected=(0.45*transmission_rate+ 0.25*transmission+ 0.2*interaction_rate + 0.1*migration_rate)
 
-for i in range(days):
+infected=[]
+cured=[]
+
+
+for i in range(1,days+1):
     food-=food_consumption
 
     if food<=0:
         print("Food has run out, population will start to decline much faster")
         infected*3
-
-#    cured=infected
+    new_infections=(0.45*transmission_rate+0.25*transmission+0.2*interaction_rate+0.1*migration_rate)*initial_pop
+    new_cured=cure_rate*initial_pop
     
+    initial_pop-=new_infections
+    
+    print(f"Day {i}: Infected: {new_infections}")
+
     
