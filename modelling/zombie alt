@@ -1,17 +1,37 @@
 
+#This is a computer model that predicts changes to population in a zombievirus, will print how  
+#assumptions- 
 
-#This is a computer model that predicts the change of population in a zombievirus
-#assumptions - 
+#inputs
 initial_pop=int(input("Enter the starting population in thousands: "))*1000
-infection_rate=float(input("Enter the transmission rate; probabiity of transmission per person per day in percent: "))/100
-zombie_deaths=float(input("Enter zombie death percent per day: "))/100
+transmission_rate=float(input("Enter the transmission rate; probabiity of transmission per person per day in percent: "))/100
+zombie_deaths=float(input("Enter zombie death rate per day: "))/100
 transmission_method=("Enter the transmission method between zombies and humans; bite,airborne or contaminated surfaces (enter as 'B', 'A' or 'CS'): ").lower()
 cure_rate=float(input("Enter the rate that humans per day are being cured, in percent: "))/100
 interaction_rate=float(input("Enter the rate that humans per day are interacting with zombies, in percent: "))/100
 migration_rate=float(input("Enter the rate that humans per day that are migrating from the area, in percent: "))/100
 food_consumption=float(input("Enter the rate that food is being consumed on a daily basis, in percent: "))/100
 
-years=float("Enter amount of years to be modeled: ")
+days=int(input("Enter amount of days to be modelled:"))
 
-if transmission_method =="b":
+if transmission_method=="b":
+    transmission=0.7
+elif transmission_method=="a":
+    transmission=1
+else:
+    transmission=0.5
+
+food=1
+
+infected=(0.45*transmission_rate+ 0.25*transmission+ 0.2*interaction_rate + 0.1*migration_rate)
+
+for i in range(days):
+    food-=food_consumption
+
+    if food<=0:
+        print("Food has run out, population will start to decline much faster")
+        infected*3
+
+#    cured=infected
+    
     
