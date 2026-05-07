@@ -2,47 +2,58 @@
 #assumptions- 
 
 #inputs
-initial_pop=int(input("Enter the starting population in thousands: "))*1000
-zombie_deaths=float(input("Enter zombie death rate per day: "))/100
+pop=int(input("Enter the starting population in thousands: "))*1000
+zombie_deaths=float(input("Enter percent of zombies that are dying per day: "))/1000
+intervention=input("Are public health interventions being implemented: y/n? ").lower()
 transmission_method=input("Enter the transmission method between zombies and humans; bite,airborne or contaminated surfaces (enter as 'B', 'A' or 'CS'): ").lower()
-cure_rate=float(input("Enter the percent that infected are being cured per day: "))/100   #cure rate * infected
-interaction_rate=float(input("Enter the percent of humans per day that are interacting with zombies: "))/100     #rate * pop
-migration_rate=float(input("Enter the percent of humans per day that are migrating from the area: "))/100
-food_consumption=float(input("Enter the rate that food is being consumed on a daily basis, in percent: "))/100
+cure_rate=float(input("Enter the percent that infected are being cured per day: "))/1000   #cure rate * infected
+
+contact_rate=float(input("Enter the percent of humans per day in contact with zombies : "))/1000
+food_consumption=float(input("Enter the rate that food is being consumed on a daily basis, in percent: "))/1000
 
 days=int(input("Enter amount of days to be modelled:"))
 
 if transmission_method=="b":
-    transmission=0.7
+    transmission=0.07
 elif transmission_method=="a":
-    transmission=1
+    transmission=0.1
 else:
-    transmission=0.5
+    transmission=0.05
+if intervention=="y":
+    intervention_rate=-0.05
+else:
+    intervention_rate=0.05
 
 food=1
+infected_today=0
+cured_today=0
+zombies_killed=0
 
-transmission_rate=(0.6*transmission+ 0.4*interaction_rate)
+infection_rate=(0.5*transmission+  0.3*contact_rate+ 0.2*intervention_rate)
 
-infection_rate=(0.9*transmission_rate+  0.1*migration_rate)
-
-infected=infection_rate*initial_pop
-
+infected=infection_rate*pop
+cured=cure_rate*infected
+zombie=zombie_deaths*infected
 
 
 for i in range(1,days+1):
+
     food-=food_consumption
-    infected_today=infected*i
-    cured_today=(cure_rate*initial_pop)*i
-    zombies_killed=(zombie_deaths*infected)*i
+    
+    infected_today+=infected
+    cured_today+=cured
+    zombies_killed+=zombie
+    
+    infected-=cured
+    infected-=zombies_killed
+#    pop-=infected
     
     if food<=0:
         print("Food has run out, population will start to decline much faster")
-        infected*3
+        infected*1.1
 
     print(f"Day {i}: Infected: {round(infected_today,0)} Cured: {round(cured_today,0)}  Zombies Dead: {round(zombies_killed,0)}")
 
-    if initial_pop<=0 or infected_today>initial_pop or cured_today>initial_pop or zombies_killed>initial_pop:
+    if pop<=0 or infected_today>pop or cured_today>pop or zombies_killed>pop:
         break
-    
-    
     
