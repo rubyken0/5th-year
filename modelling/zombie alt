@@ -1,59 +1,70 @@
-#This is a computer model that predicts changes to population in a zombievirus, will print how  
-#assumptions- 
+#This is a computer model that predicts the amount of infected humans during a zombie virus using user entered inputs
+#assumptions- In my computer model I assume there would be no military or defense intervention in the zombie virus simulation, I have also divided my percent rates by 1000 instead of a hundred due to the rates rapidly growing
 
-#inputs
-pop=int(input("Enter the starting population in thousands: "))*1000
-zombie_deaths=float(input("Enter percent of zombies that are dying per day: "))/1000
+print("---Welcome to the zombie virus model, in this model, statistics will be predicted based on the info you enter!---")
+#inputs - allowing the user to enter the rates and info through input statements 
+pop=int(input("\nEnter the starting population in thousands: "))*1000
 intervention=input("Are public health interventions being implemented: y/n? ").lower()
-transmission_method=input("Enter the transmission method between zombies and humans; bite,airborne or contaminated surfaces (enter as 'B', 'A' or 'CS'): ").lower()
-cure_rate=float(input("Enter the percent that infected are being cured per day: "))/1000   #cure rate * infected
-
+transmission_method=input("Enter the transmission method between zombies and humans; bite,airborne or contaminated surfaces (enter as 'B', 'A' or 'CS'): ").lower() # using .lower to eliminate case inconsistensies if the user enters capital
+cure_rate=float(input("Enter the percent that infected are being cured per day: "))/1000   
+zombie_deaths=float(input("Enter percent of zombies that are dying per day: "))/1000
 contact_rate=float(input("Enter the percent of humans per day in contact with zombies : "))/1000
-food_consumption=float(input("Enter the rate that food is being consumed on a daily basis, in percent: "))/1000
+food_consumption=float(input("Enter the rate that food is being consumed on a daily basis, in percent: "))/100
 
 days=int(input("Enter amount of days to be modelled:"))
 
+#conditional statements - to create rates based on what the user entered for example an airborne virus would transmit more than other types, making it a larger value for the rate
 if transmission_method=="b":
     transmission=0.07
 elif transmission_method=="a":
     transmission=0.1
 else:
     transmission=0.05
+
 if intervention=="y":
     intervention_rate=-0.05
 else:
     intervention_rate=0.05
-
+#creating the empty variables to be updated later in the loop
 food=1
 infected_today=0
 cured_today=0
 zombies_killed=0
+healthy=pop
 
+#creating the infection rate using weightings of the factors
 infection_rate=(0.5*transmission+  0.3*contact_rate+ 0.2*intervention_rate)
 
+#calculating the amount of infected,cured and zombies killed
 infected=infection_rate*pop
 cured=cure_rate*infected
 zombie=zombie_deaths*infected
 
-
+#looping for amount of days inclusive
 for i in range(1,days+1):
-
+#-= subtracts the food consumption of each day and updates it to that amount
     food-=food_consumption
-    
+
+# using -= and += to update the values of infected,cured, and zombies killed in the loop updating every day as the += adds the value and updates to that amount   
     infected_today+=infected
     cured_today+=cured
     zombies_killed+=zombie
-    
-    infected-=cured
-    infected-=zombies_killed
-#    pop-=infected
-    
+
+# subtracting cured amount and zombies killed from infected
+    infected_today-=cured
+    infected_today-=zombies_killed
+
+#using conditionals to increase amount of infected when food runs out  
     if food<=0:
         print("Food has run out, population will start to decline much faster")
         infected*1.1
 
-    print(f"Day {i}: Infected: {round(infected_today,0)} Cured: {round(cured_today,0)}  Zombies Dead: {round(zombies_killed,0)}")
-
+#using conditionals to break the loop incase the values grow more than the population
     if pop<=0 or infected_today>pop or cured_today>pop or zombies_killed>pop:
+        print("Population has died out - model ending...")
         break
     
+    print(f"\nDay {i}: Infected: {round(infected_today,0)} Cured: {round(cured_today,0)}  Zombies Dead: {round(zombies_killed,0)} \n Food percent left: {round(food*100,0)}%")
+
+  
+#plotting the graph using mat plot lib
