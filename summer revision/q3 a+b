@@ -1,0 +1,71 @@
+#a
+def staff_name():
+    name=input("enter your name: ").capitalize()
+    print(f"Welcome {name} to the hotel charge calculator")     #return name
+staff_name()    # 
+guest_name=input("please enter guest name: ").capitalize()
+nights=float(input("enter number of nights stayed: "))
+nightly_rate=float(input("enter nightly room rate: "))
+total_cost=nights*nightly_rate
+
+if nights>=5:
+    nights_type="Long stay."
+elif nights<2:
+    nights_type="Short stay."
+else:
+    nights_type="Standard stay."
+print(f"{guest_name} stayed for {nights} nights and owes €{round(total_cost,2)}. {nights_type}")
+
+
+#b
+guest_list=[]
+nights_list=[]
+def guests():
+    while True:
+        names=input("enter guest name and enter 'end' or 'End' when done: ").capitalize()
+        guest_list.append(names)
+        if names=="End":
+            break
+def nights():
+    while True:
+        amounts=int(input("enter the number of nights stayed and enter '-1' when done: "))
+        nights_list.append(amounts)
+        if amounts==-1:
+            break
+guests()
+nights()
+guest_list.pop()
+nights_list.pop()
+print(guest_list)
+print(nights_list)
+
+if len(nights_list) > len(guest_list):
+    missing_g=input("Error, enter missing guest: ").capitalize()
+    guest_amount=int(input("enter amount of nights they stayed: "))
+    index1=nights_list.index(guest_amount)
+    guest_list.insert(index1,missing_g)
+    print(f"updated list: {guest_list}")
+
+if len(guest_list) > len(nights_list):
+    missing_n=int(input("Error, enter missing night value: "))
+    guest_name=input("enter matching name of customer: ").capitalize()
+    index2=guest_list.index(guest_name)
+    nights_list.insert(index2,missing_n)
+    print(f"updated list: {nights_list}")
+
+most=max(nights_list)
+print(f"Highest number of nights stayed is: {most}")
+lowest=min(nights_list)
+print(f"Highest number of nights stayed is: {lowest}")
+
+index_most=nights_list.index(most)
+most_guest=guest_list[index_most]
+print(f"The guest who stayed the longest is: {most_guest}")
+
+index_least=nights_list.index(lowest)
+least_guest=guest_list[index_least]
+print(f"The guest who stayed the shortest time is: {least_guest}")
+
+total=sum(nights_list)
+avg=total/len(nights_list)
+print(f"averagr number of nights stayed: {round(avg,2)}")
