@@ -24,3 +24,29 @@ elif calories_burned<150:
 else:
     print(f"{member_name} burned {round(calories_burned,2)} calories. Good session")
 
+#question 1 a
+#student name: ruby kennedy
+#iv creating function
+def username(name):
+    return f"Welcome {name}, to the exercise calculator"
+name=input("enter your username: ").capitalize()   
+username(name)
+# can be used without parameter if name input in function
+
+member_name = input("Please enter the member name: ").capitalize()
+#i changing to float
+minutes = float(input("Please enter the number of minutes exercised: "))
+#ii calorie per min value to float using input to ask user
+calories_per_min=float(input("Enter the calories burned per minute: "))
+calories_burned = minutes * calories_per_min
+#v
+if calories_burned >=300:
+    session="Excellent session"
+elif calories_burned <150:
+    session="Short session"
+else:
+    session="Good session"
+
+#iii rounding function
+print(f"{member_name} burned {round(calories_burned,1)} calories. {session}.")
+
