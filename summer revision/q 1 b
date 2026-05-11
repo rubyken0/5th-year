@@ -1,0 +1,38 @@
+#1 b
+names_list=[]
+distance_list=[]
+def athlete_names():
+    while True:
+        names=input("Enter athlete name and enter 'end' or 'End' when complete: ").capitalize()
+        names_list.append(names)
+        if names=='End':
+            break
+def distances():
+    while True:
+        distances=float(input("Enter athlete distance in km and enter '-1' when complete: "))
+        distance_list.append(distances)
+        if distances==-1:
+            break
+athlete_names()
+distances()
+
+names_list.pop
+distance_list.pop
+print(names_list)
+print(distance_list)
+
+if len(names_list)!=len(distance_list):
+    print("ERROR: You have entered more athlete distances than athlete names")
+if len(names_list)>len(distance_list):
+    missing_dist=float(input("Enter athlete distance that is left out: "))
+    matching_name=input("Enter corresponding athlete name:").capitalize()
+    index=names_list.index(matching_name)
+    distance_list.insert(index,missing_dist)
+
+if len(distance_list)>len(names_list):
+    missing_name=input("Enter athlete name that is left out: ").capitalize()
+    matching_dist=float(input("Enter corresponding athlete distance:"))
+    index=distance_list.index(matching_dist)
+    names_list.insert(index,missing_name)  
+    
+most=max(distance_list)
