@@ -1,0 +1,25 @@
+#2 b
+customers=[]
+num_seats=[]
+def customer_names():
+    while True:
+        name=input("Please enter the customer name and enter 'end' or 'End' when done: ").capitalize()
+        if name == 'End':
+            break
+        else:
+            customers.append(name)
+def number_seats():
+    while True:
+        number=input("Please enter the number of seats booked and enter '-1' when done: ")
+        if number ==-1:
+            break
+        else:
+            customers.append(name)
+print(f"Customers names are: {customers}")  #could make printing listsa function as ir happens often
+print(f"Seats booked are: {num_seats}")
+
+if len(customers) != len(num_seats):
+    print("Error, customer amount and seat booking amounts are not the same")
+    if len(customers) > len(num_seats):
+     
+                      
