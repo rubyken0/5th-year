@@ -16,23 +16,44 @@ def distances():
 athlete_names()
 distances()
 
-names_list.pop
-distance_list.pop
+names_list.pop()
+distance_list.pop()
 print(names_list)
 print(distance_list)
 
 if len(names_list)!=len(distance_list):
     print("ERROR: You have entered more athlete distances than athlete names")
-if len(names_list)>len(distance_list):
-    missing_dist=float(input("Enter athlete distance that is left out: "))
-    matching_name=input("Enter corresponding athlete name:").capitalize()
-    index=names_list.index(matching_name)
-    distance_list.insert(index,missing_dist)
+    if len(names_list)>len(distance_list):
+        missing_dist=float(input("Enter athlete distance that is left out: "))
+        matching_name=input("Enter corresponding athlete name:").capitalize()
+        index=names_list.index(matching_name)
+        distance_list.insert(index,missing_dist)
 
-if len(distance_list)>len(names_list):
-    missing_name=input("Enter athlete name that is left out: ").capitalize()
-    matching_dist=float(input("Enter corresponding athlete distance:"))
-    index=distance_list.index(matching_dist)
-    names_list.insert(index,missing_name)  
-    
+    if len(distance_list)>len(names_list):
+        missing_name=input("Enter athlete name that is left out: ").capitalize()
+        matching_dist=float(input("Enter corresponding athlete distance:"))  #might just ask for exact index of the distance
+        index=distance_list.index(matching_dist)
+        names_list.insert(index,missing_name)  
+    print("Updated lists: ")
+    print(names_list)
+    print(distance_list)
+
 most=max(distance_list)
+least=min(distance_list)
+
+#most andleast person 
+index_most=distance_list.index(most)
+index_least=distance_list.index(least)
+
+
+#avg
+total=sum(distance_list)
+avg=total/len(distance_list)
+
+print(f"Highest distance run is {most}")
+print(f"Lowest distance run is {least}")
+
+print(f"Average distance is {round(avg,1)}")
+
+print(f"The athlete who ran the highest distance: {names_list[index_most]}")
+print(f"The athlete who ran the lowest distance: {names_list[index_least]}")
