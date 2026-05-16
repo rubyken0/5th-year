@@ -1,0 +1,9 @@
+# 5 b
+import random
+name=input("enter ur name: ").capitalize()
+lucky_num=int(input("Please enter a lucky number between 1 and 10: "))
+comp_num=random.randint(1,10)
+print(f"\n{name}'s lucky number was: {lucky_num}")
+print(f"the computer chose: {comp_num}")
+
+if 
