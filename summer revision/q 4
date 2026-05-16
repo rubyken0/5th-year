@@ -1,0 +1,86 @@
+#Ruby Kennedy
+#4 a
+#iv creating function, printing message in function, then calling it
+def cafe_welcome():
+    print("Welcome to the café drinks calculator.")
+cafe_welcome()
+
+customer_name=input("\nPlease enter customer name: ").capitalize()
+
+#i modifying to float
+drinks=float(input("Please enter number of drinks ordered: "))
+
+#ii creating drink price variable and using input statement allowing user to enter price
+drink_price=float(input("Please enter drink price: "))
+
+#iii rounding total using round function
+bill_total=round(drinks*drink_price,2)
+
+#v using condtional statements to check if the total is large,medium or small then assigning that to the variable category
+if bill_total>=20:
+    category="Large order"
+elif bill_total<10:
+    category="Small order"
+else:
+    category="Medium order"
+    
+print(f"{customer_name} must pay €{bill_total}. {category}.")
+
+
+
+#4b ruby kennedy
+#creating empty lists to store values later
+customer_names=[]
+num_drinks=[]
+# creating functions, using while loop to break the loop if they enter -1 or end, if not, adding the input to the list, then calling them
+def customers():
+    while True:
+        name=input("Please enter customer name and enter 'end' or 'End' when complete: ").capitalize()
+        if name=="End":
+            break
+        else:
+            customer_names.append(name)
+def drinks():
+    while True:
+        number=int(input("Please enter the number of drinks and enter '-1' when complete: "))
+        if number==-1:
+            break
+        else:
+            num_drinks.append(number)
+customers()
+drinks()
+#printing thr lists
+print(f"\nCustomer names are {customer_names}")
+print(f"Drinks ordered are {num_drinks}")
+#using nested condtionals to check if the lists lengths are different, if so, asking the user for the missing info and the index then inserting to lsit at correct place
+if len(customer_names) != len(num_drinks):
+    print("\nError, amounts are not equal")
+    if len(customer_names) > len(num_drinks):
+        print("There is a missing drinks amount")
+        missing_num=int(input("Please enter missing drinks amount: "))
+        index=int(input("Please enter the index for the missing drink amount: "))
+        num_drinks.insert(index,missing_num)
+    if len(num_drinks)>len(customer_names):
+        print("There is a missing customer name")
+        missing_name=input("Please enter missing name: ")
+        index=int(input("Please enter the index for the missing name: "))
+        customer_names.insert(index,missing_name)
+    print("\nThe updates lists are:")
+    print(f"nCustomer names are {customer_names}")
+    print(f"Drinks ordered are {num_drinks}")
+
+#using built in functions to find out biggest,smallest values and the sum for the average, finding the index of the most/least to find the person who ordered those
+most=max(num_drinks)
+least=min(num_drinks)
+total=sum(num_drinks)
+avg=round(total/len(num_drinks),2)
+index_most=num_drinks.index(most)
+index_least=num_drinks.index(least)
+
+#printing thhe results usong f strings
+print(f"\nHighest number of drinks ordered is: {most}")
+print(f"Lowest number of drinks ordered is: {least}")
+print(f"The customers who ordered the most drinks is: {customer_names[index_most]}")
+print(f"The customers who ordered the fewest drinks is: {customer_names[index_least]}")
+print(f"The average number of drinks ordered is: {avg}")
+
