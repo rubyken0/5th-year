@@ -1,0 +1,89 @@
+#a
+#ruby kennedy
+
+#iv creating a function that asks user for staff name and return welcome message, then callling function
+def icecream_welcome():
+    name=input("Please enter staff name: ").capitalize()
+    return f"{name} welcome to the ice-cream cone calculator"
+
+print(icecream_welcome())
+
+customer_name=input("Please enter the customer name: ").capitalize()
+
+#i changing int to float , allowing the user to input a decimal
+cones=float(input("Please enter the number of cones ordered: "))
+
+#ii creating a variable for the cone price, using float allowing user to enter decimal for price, using input allowing user to enter price
+cone_price=float(input("Please enter the cone price: "))
+
+#practice creating variable for discount amount 
+discount=float(input("Enter discount amount: "))
+
+#iii using round function to round the total
+bill_total=round((cones*cone_price)-discount,2)
+
+#v using conditional statements to check the bill total then assigning a string to a variable
+if bill_total >=15:
+    category="Large order"
+elif bill_total >=7:
+    category="Medium order"
+else:
+    category="Small order"
+
+print(f"\n{customer_name} must pay €{bill_total}. {category}.")
+
+
+#b
+#ruby kennedy
+#using empty lists so values can be added later
+customer_names=[]
+num_cones=[]
+#defining function, using while true so the loop breaks when thr user is complete, appending correct info to lists,
+def customers():
+    while True:
+        names=input("Please enter customer name and enter 'end' or 'End' when complete: ").capitalize().strip()
+        if names=="End":
+            break
+        else:
+            customer_names.append(names)
+def cones():
+    while True:
+        num=int(input("Please enter number of cones ordered and enter '-1' when complete: "))
+        if num==-1:
+            break
+        else:
+            num_cones.append(num)
+#calling functions, printing lists
+customers()
+print()
+cones()
+print(f"Customers: {customer_names}")
+print(f"Cones ordered: {num_cones}")
+# using conditionals+nested conditionals to check if lists are same lengths and printing error if not, using .insert to add the missing value into right index
+if len(customer_names) != len(num_cones):
+    print("Error, missing information")
+    if len(customer_names)>len(num_cones):
+        print("Missing amount of cones ordered")
+        missing_cone=int(input("Please enter the missing amount of cones ordered: "))
+        index=int(input("Please enter the correct index position for the missing amount: "))
+        num_cones.insert(index,missing_cone)
+    if len(num_cones)>len(customer_names):
+        print("Missing customer name")
+        missing_name=input("Please enter the missing customer name: ").capitalize()
+        index=int(input("Please enter the correct index position for the missing name: "))
+        customer_names.insert(index,missing_name)
+    print("\nUpdated lists are: ")
+    print(f"Customers: {customer_names}")
+    print(f"Cones ordered: {num_cones}")
+#finding the statistics using built in functions and indexing
+most=max(num_cones)
+least=min(num_cones)
+total_cones=sum(num_cones)
+index_most=num_cones.index(most)
+index_least=num_cones.index(least)
+#printing amounts using f stringgs and rounding
+print(f"\nThe highest number of cones ordered is: {most}")
+print(f"The lowest number of cones ordered is: {least}")
+print(f"The customer who ordered the most cones is: {customer_names[index_most]}")
+print(f"The customer who ordered the least cones is: {customer_names[index_least]}")
+print(f"The average number of cones ordered is: {round(total_cones/len(num_cones),2)}")
