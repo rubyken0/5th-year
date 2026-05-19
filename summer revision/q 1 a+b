@@ -1,0 +1,81 @@
+#question 1 (a)
+#student name: Ruby Kennedy
+#iv creating a function that asks for username using input and returns the function to print the name with a message, then calling function 
+def username():
+    username=input("Please enter your username: ").capitalize()
+    return f"Welcome {username}, to the exercise calculator."
+print(username())
+
+member_name=input("\nPlease enter the member name: ").capitalize()
+#i converting 'minutes' to float instead of int
+minutes=float(input("Please enter the number of minutes exercised: "))
+#ii using input statement to allow user to enter calories per min instead of hard coded value
+calories_per_minute=float(input("Please enter calories burned per minute: "))
+#iii rounding the total using round function
+calories_burned=round(minutes*calories_per_minute,2)
+#v using conditional statements, using if/elif/else to check what category the calories are, assigning a string to a variable 
+if calories_burned >=300:
+    category="Excellent session"
+elif calories_burned >=150:
+    category="Good session"
+else:
+    category="Short session"
+    
+print(f"\n{member_name} burned {calories_burned} calories. {category}.")
+
+
+
+#b
+#ruby kennedy
+#creating empty brackets so they can be appended later
+athletes=[]
+distances=[]
+#creating functions, using while true so the loop continues till the user enters end or -1, adding names to list if loop doesnt break
+def athlete_names():
+    while True:
+        name=input("Please enter athlete name and enter 'end' or 'End' when complete: ").capitalize().strip()
+        if name=="End":
+            break
+        else:
+            athletes.append(name)
+def athlete_distances():
+    while True:
+        distance=float(input("Please enter athlete distance in km enter '-1' when complete: "))
+        if distance==-1:
+            break
+        else:
+            distances.append(distance)
+#calling functions, printing lists
+athlete_names()
+print()
+athlete_distances()
+print(f"\nAthlete names are: {athletes}")
+print(f"Athlete distances are: {distances}")
+#using conditionals to check if lists are same length, if not printing an error and using a nested conditional to allow user to enter missing name/distance and cofrespodning index
+if len(athletes) != len(distances):
+    print("Error")
+    if len(athletes) > len(distances):
+        print("You have entered more athlete names than athlete distances")
+        missing_dist=float(input("Please enter the athlete distance that was left out: "))
+        index=int(input("What is the index position of the missing distance: "))
+        distances.insert(index,missing_dist)
+    if len(distances) > len(athletes):
+        print("You have entered more athlete distances than athlete names")
+        missing_name=input("Please enter the athlete name that was left out: ").capitalize()
+        index=int(input("What is the index position of the missing name: "))
+        athletes.insert(index,missing_name)
+    print(f"\nUpdated athlete names are: {athletes}")
+    print(f"Updated athlete distances are: {distances}")
+#analysing the data using built in functions and indexing
+highest_dist=max(distances)
+lowest_dist=min(distances)
+total=sum(distances)
+index_highest=distances.index(highest_dist)
+index_lowest=distances.index(lowest_dist)
+
+# prinitng the statistics using f strings and rounding 
+print(f"\nHighest distance run is: {highest_dist} km")
+print(f"Lowest distance run is: {lowest_dist} km")
+print(f"The athlete who ran the highest distance is: {athletes[index_highest]}")
+print(f"The athlete who ran the lowest distance is: {athletes[index_lowest]}")
+print(f"The average distance run is {round(total/len(distances),1)} km")
