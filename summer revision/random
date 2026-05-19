@@ -1,0 +1,28 @@
+#q 7 - game
+#b
+import random
+faces=["1","2","3","4","5","6","7","8","9","10","11","12","13"]
+suits=["C","D","H","S"]
+face_player=random.choice(faces)
+suit_player=random.choice(suits)
+face_comp=random.choice(faces)
+suit_comp=random.choice(suits)
+
+player_draw=face_player+suit_player
+computer_draw=face_comp+suit_comp
+
+print(f"Player drew: {player_draw}")
+bet=int(input("Enter your bet: "))
+print(f"The computer draw was: {computer_draw}")
+
+player_face_num=int(face_player)
+comp_face_num=int(face_comp)
+
+if player_face_num>comp_face_num:
+    print("Player wins!")
+    total=bet*3
+    print(f"You won {total} coins")
+elif comp_face_num>player_face_num:
+    print("Computer wins!")
+else:
+    print("Draw!")
