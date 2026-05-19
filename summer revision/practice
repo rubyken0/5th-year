@@ -1,0 +1,57 @@
+cookies=[]
+customers=[]
+def welcome():
+    staff_name=input("Enter the worker using the machine: ")
+    return f"Welcome {staff_name}, to the cookie shop"
+print(welcome())
+
+def customer_names():
+    while True:
+        name=input("Enter each customer and enter 'End' when complete: ").capitalize().strip()
+        if name=="End":
+            break
+        else:
+            customers.append(name)
+def amount():
+    while True:
+        cookie_amount=int(input("Enter cookie order amount and enter '-1' when complete: "))
+        if cookie_amount==-1:
+            break
+        else:
+            cookies.append(cookie_amount)
+            
+customer_names()
+print()
+amount()
+print(f"Customers: {customers}")
+print(f"Cookie amounts: {cookies}")
+
+if len(cookies)!=len(customers):
+    print("Error")
+    if len(cookies)>len(customers):
+        print("You have entered more cookie amounts than customer names")
+        missing_name=input("Enter the missing customer name: ").capitalize()
+        index=int(input("Enter the index position of the missing name: "))
+        customers.insert(index,missing_name)
+    if len(customers)>len(cookies):
+        print("You have entered more customer names than cookie order amounts")
+        missing_amount=int(input("Enter the missing cookie order amount: "))
+        index=int(input("Enter the index position of the missing name: "))
+        cookies.insert(index,missing_amount)
+    print("\nUpdated lists are: ")
+    print(f"Customers: {customers}")
+    print(f"Cookie amounts: {cookies}")
+    
+most_cookies=max(cookies)
+least_cookies=min(cookies)
+
+total_cookies=sum(cookies)
+
+index_most=cookies.index(most_cookies)
+index_least=cookies.index(least_cookies)
+
+print(f"\nmost cookies ordered: {most_cookies}")
+print(f"least cookies ordered: {least_cookies}")
+print(f"the person who bought the most cookies is: {customers[index_most]}")
+print(f"the person who bought the least cookies is: {customers[index_least]}")
+print(f"average cookies bought: {round(total_cookies/len(cookies))}")
