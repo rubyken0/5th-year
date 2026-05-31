@@ -1,28 +1,61 @@
 #q 7 - game
 #b
 import random
+import time
 faces=["1","2","3","4","5","6","7","8","9","10","11","12","13"]
-suits=["C","D","H","S"]
-face_player=random.choice(faces)
-suit_player=random.choice(suits)
-face_comp=random.choice(faces)
-suit_comp=random.choice(suits)
+suits=["S","H","D","C"]
+total=0
+print("---Welcome to the card drawing game!---")
+print(
+    "Rules: The computer and user will both draw a card numbered 1-13 with a ranked suit (Spades,Hearts,Diamonds,Clubs), in that order spades being the highest."
+    " Highest card wins."
+)
+while True:
+    rounds=int(input("\nHow many rounds do you want to play?  "))
+    if rounds<1:
+        print("Error. Incorrect amount entered.")
+    else: 
+        break
+    
+for i in range(1,rounds+1):
+    print(f"\nRound {i}:")
+    face_player=random.choice(faces)
+    suit_player=random.choice(suits)
+    face_comp=random.choice(faces)
+    suit_comp=random.choice(suits)
 
-player_draw=face_player+suit_player
-computer_draw=face_comp+suit_comp
+    player_draw=face_player+suit_player
+    computer_draw=face_comp+suit_comp
+    
+    print(f"\nPlayer drew: {player_draw}")
+    bet=int(input("Enter your bet: "))
+    print(f"The computer draw was: {computer_draw}")
 
-print(f"Player drew: {player_draw}")
-bet=int(input("Enter your bet: "))
-print(f"The computer draw was: {computer_draw}")
+    player_face_num=int(face_player)
+    comp_face_num=int(face_comp)
 
-player_face_num=int(face_player)
-comp_face_num=int(face_comp)
-
-if player_face_num>comp_face_num:
-    print("Player wins!")
-    total=bet*3
-    print(f"You won {total} coins")
-elif comp_face_num>player_face_num:
-    print("Computer wins!")
-else:
-    print("Draw!")
+    if player_face_num>comp_face_num:
+        print("Player wins!")
+        time.sleep(5)
+        win=bet*3
+        total+=win
+        print(f"You won {total} coins")
+        time.sleep(2)
+    elif comp_face_num>player_face_num:
+        print("Computer wins!")
+        time.sleep(5)
+    else:
+        print("Draw! Tiebreaker with suits: ")
+        if suits.index(suit_player)< suits.index(suit_comp):
+            print("player wins!")
+            time.sleep(5)
+            win=bet*3
+            total+=win
+            time.sleep(2)
+            print(f"You won {total} coins")
+        elif suits.index(suit_comp)<suits.index(suit_player):
+            print("computer wins!")
+            time.sleep(5)
+        else:
+            print("Exact draw!")
+print(f"\nYour total winnings: {total}.\nThanks for playing")
