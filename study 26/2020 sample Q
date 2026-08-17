@@ -1,0 +1,25 @@
+#i this calculator can only add or subtract
+
+
+#ii
+name=input("Please enter your name: ").capitalize().strip()
+#iii
+print(f"Hello {name}.\nWelcome to the addition and subtraction calculator.")
+#iv
+num1=int(input("\nEnter the first number: "))
+num2=int(input("\nEnter the second number: "))
+#viii
+while True:
+    choice=input("Do you want me to (a)dd or (s)ubtract?").lower().strip()
+    if choice=='a':
+        total=num1+num2
+        print(f"{num1} + {num2} = {total}")
+        break
+    elif choice=='s':
+        total=num1-num2
+        print(f"{num1} - {num1} = {total}")
+        break
+    else:
+        print("invalid option")
+
+    
