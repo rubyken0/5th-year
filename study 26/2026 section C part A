@@ -21,6 +21,23 @@ def calculate_readability_score(text):
 #iii modifying so it counts exclamation marks aswell
 # Initialise the number of sentences 
     sentence_count = text.count(".") + text.count("!")
+    
+#vii
+    vowels="aeiou"
+    complex_words=0
+    for word in words:
+        syllables=0
+        for letters in word:
+            if letters in vowels:
+                syllables+=1
+        if word[-1]=="e":
+            syllables-=1
+        if syllables>=3:
+            complex_words+=1
+    print(f"Complex words: {complex_words}")
+        
+        
+        
 
 # Calculate the readability score 
 #  vi
@@ -51,4 +68,3 @@ elif score2<score1:
     print("The second text is easier to read.")
 else:
     print("Both scores are the same.")
-
