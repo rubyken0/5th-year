@@ -1,0 +1,36 @@
+#2026 part c (b)
+
+
+vowel="AEIOU"
+end="VWXYZ"
+rest="BCDFGHJKLMNPQRST"
+
+total=0
+
+def word_scoring_game():
+    global total #getting the code to use the total outside of the func
+    while True:
+        word=input("Enter a word: ").upper()
+        if word.isalpha() == True:
+            break
+        else:
+            print("Error! Word must contain only letters, enter again")
+    
+    score=0
+    for letter in word:
+        if letter in vowel:
+            score+=1
+        elif letter in end:
+            score+=5
+        elif letter in rest:
+            score+=3
+    total+=score
+    print(f"Word: {word}, Score: {score}, Total score: {total}")
+    
+word1=word_scoring_game()
+
+
+again=input("Play again? [Y/N]: ").strip().lower()
+if again=="y":
+    word2=word_scoring_game()
+else
